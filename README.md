@@ -120,6 +120,15 @@ AI Agent 已经能帮你写代码、改文档、管项目——但你让它去�
 | 💻 **V2EX** | 热门帖子、节点帖子、帖子详情+回复、用户信息 | — | 无需配置 |
 | 📈 **雪球** | 股票行情、搜索股票、热门帖子、热门股票排行 | — | 告诉 Agent「帮我配雪球」 |
 | 🎙️ **小宇宙播客** | — | 播客音频转文字（Whisper 转录，免费 Key） | 告诉 Agent「帮我配小宇宙播客」 |
+| **--- Global Expansion（全球平台扩展） ---** | | | |
+| 🎵 **TikTok** | 视频、用户、主题标签搜索 | — | yt-dlp（无需登录） |
+| 💬 **Threads** | — | 用户搜索、帖子阅读 | 桌面装 OpenCLI（复用 Meta 登录态） |
+| 📌 **Pinterest** | 图钉、看板搜索 | — | yt-dlp 或 pinterest-api |
+| ❓ **Quora** | — | 问答搜索、用户问题阅读 | BeautifulSoup 爬虫（无需登录） |
+| 📱 **Telegram** | — | 公开频道消息搜索和监控 | telethon 或 pyrogram（需 API Key） |
+| **--- Malaysia Local Platforms（马来西亚本地平台） ---** | | | |
+| 🎨 **Lemon8** | — | 内容搜索、用户 Profile | OpenCLI 或 lemon8-api（需登录） |
+| 💬 **Lowyat.NET** | 论坛贴子搜索、讨论阅读 | — | BeautifulSoup 爬虫（无需登录） |
 
 > **不知道怎么配？不用查文档。** 直接告诉 Agent「帮我配 XXX」，它知道需要什么、会一步一步引导你。
 >
@@ -219,6 +228,13 @@ channels/
 ├── linkedin.py     → mcp-server-linkedin ▸ Jina Reader
 ├── rss.py          → feedparser
 ├── exa_search.py   → Exa via mcporter
+├── tiktok.py       → yt-dlp（无需登录）
+├── threads.py      → OpenCLI（桌面浏览器登录态）
+├── pinterest.py    → yt-dlp ▸ pinterest-api
+├── quora.py        → BeautifulSoup4（无需登录）
+├── telegram.py     → telethon ▸ pyrogram
+├── lemon8.py       → OpenCLI ▸ lemon8-api（Malaysia）
+├── lowyat.py       → BeautifulSoup4（Malaysia 论坛，无需登录）
 └── __init__.py     → 渠道注册（doctor 检测用）
 ```
 
@@ -240,6 +256,13 @@ channels/
 | 读 RSS | [feedparser](https://github.com/kurtmckee/feedparser) | — | Python 生态标准选择 |
 | 小红书 | [OpenCLI](https://github.com/jackwener/opencli)（桌面） | [xiaohongshu-mcp](https://github.com/xpzouying/xiaohongshu-mcp)（服务器）▸ xhs-cli | OpenCLI 只用用户已有会话；其余后端用 Cookie-Editor 手工导出 |
 | LinkedIn | [mcp-server-linkedin](https://github.com/stickerdaniel/linkedin-mcp-server) | Jina Reader | MCP 服务，浏览器自动化 |
+| TikTok | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | — | 无需登录，支持视频/用户/主题标签 |
+| Threads | [OpenCLI](https://github.com/jackwener/opencli)（桌面） | — | Meta 原生支持，复用浏览器登录态 |
+| Pinterest | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | [pinterest-api](https://github.com/pinterest/api) | yt-dlp 免费无登录；API 可选 |
+| Quora | [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup) | — | 无需登录；简洁的 HTML 爬虫 |
+| Telegram | [telethon](https://github.com/LonamiWebs/Telethon) | [pyrogram](https://github.com/pyrogram/pyrogram) | API Key 认证；支持公开频道监控 |
+| Lemon8（马来西亚） | [OpenCLI](https://github.com/jackwener/opencli)（桌面） | [lemon8-api](https://github.com) | 需登录；复用浏览器登录态或 API |
+| Lowyat.NET（马来西亚） | [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup) | — | 无需登录；Malaysia 最大论坛平台 |
 
 > 📌 这些都是「当前选型」，基于真机实测定期复核。某条路失效了我们换下一条——`agent-reach doctor` 永远告诉你现在走的是哪条。
 
