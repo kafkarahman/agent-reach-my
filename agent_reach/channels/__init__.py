@@ -12,9 +12,16 @@ from .exa_search import ExaSearchChannel
 from .facebook import FacebookChannel
 from .github import GitHubChannel
 from .instagram import InstagramChannel
+from .lemon8 import Lemon8Channel
 from .linkedin import LinkedInChannel
+from .lowyat import LowYatChannel
+from .pinterest import PinterestChannel
+from .quora import QuoraChannel
 from .reddit import RedditChannel
 from .rss import RSSChannel
+from .telegram import TelegramChannel
+from .threads import ThreadsChannel
+from .tiktok import TikTokChannel
 from .twitter import TwitterChannel
 from .v2ex import V2EXChannel
 from .web import WebChannel
@@ -39,6 +46,14 @@ ALL_CHANNELS: List[Channel] = [
     RSSChannel(),
     ExaSearchChannel(),
     WebChannel(),
+    # New platforms — Malaysia & Global expansion
+    TikTokChannel(),
+    Lemon8Channel(),
+    LowYatChannel(),
+    ThreadsChannel(),
+    PinterestChannel(),
+    QuoraChannel(),
+    TelegramChannel(),
 ]
 
 
